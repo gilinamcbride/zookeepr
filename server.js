@@ -12,6 +12,8 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 // parse incoming JSON data
 app.use(express.json());
+// provide a file path to a location in the application and instruct the server to make all these files static resources.
+app.use(express.static("public"));
 
 function filterByQuery(query, animalsArray) {
   // Note that we save the animalsArray as filteredResults here:
@@ -121,6 +123,25 @@ app.get("/api/animals/:id", (req, res) => {
   } else {
     res.send(404);
   }
+});
+
+// route to server.js - creates a homepage for the server
+// only on job to do: respond with an html page to display in the browser
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "./public/index.html"));
+});
+
+app.get("/animals", (req, res) => {
+  res.sendFile(path.join(__dirname, "./public/animals.html"));
+});
+
+app.get("/zookeepers", (req, res) => {
+  res.sendFile(path.join(__dirname, "./public/zookeepers.html"));
+});
+
+// wildcard route - any path that isn't defined will fall here and recieve the homepage as the response
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "./public/index.html"));
 });
 
 // listen
