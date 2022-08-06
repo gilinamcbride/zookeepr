@@ -1,4 +1,4 @@
-#  Zoo Keepr
+# Zoo Keepr
 
 ## Table of Contents
 
@@ -16,6 +16,8 @@ This app is a web server using the Express.js framework and a front-end applicat
 Open website and enter an animal, and/or enter a zookeeper. View a catalog of all of the zookeepers and animals by clicking on their respective buttons.
 
 ## Application
+
+![screenshot](./assets/images/screenshot.png)
 
 [Link to Deployed Application](https://module11-zookeepr.herokuapp.com/)
 

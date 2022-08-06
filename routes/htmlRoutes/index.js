@@ -2,7 +2,7 @@ const router = require("express").Router();
 const path = require("path");
 
 // route to server.js - creates a homepage for the server
-// only on job to do: respond with an html page to display in the browser
+// only one job to do: respond with an html page to display in the browser
 router.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../../public/index.html"));
 });
